@@ -35,210 +35,220 @@ class _signupScreenState extends State<signupScreen> {
       
        resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryColor,
-      body: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: height*0.1,),
-         
-          Center(
-            child: Text("Create Account",
-            style: GoogleFonts.manrope(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              color: AppColors.textColor
-            ),),
-          ),
-          SizedBox(height: height*0.01,),
-          Center(
-            child: Text("Please provide following",
-            style: GoogleFonts.manrope(
-              fontSize: 15,
-              
-              color: AppColors.textColor
-            ),),
-          ),
-          Center(
-            child: Text("details for your new account",
-            style: GoogleFonts.manrope(
-              fontSize: 15,
-              
-              color: AppColors.textColor
-            ),),
-          ),
-          SizedBox(height: height*0.05,),
-          customTextField(controller: _nameController, hintText: 'Full Name'),
-          SizedBox(height: height*0.02,),
-          customTextField(controller: _emailController, hintText: 'Email'),
-          SizedBox(height: height*0.02,),
-          customTextField(controller: _passwordController, hintText: 'Password'),
-          SizedBox(height: height*0.02,),
-          customTextField(controller: _confirmpasswordController, hintText: 'Confirm Password'),
-
-
-          SizedBox(height: height*0.02,),
-          Padding(
-            padding:  EdgeInsets.fromLTRB(width*0.1, 0, width*0.1, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                
-                
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      
-                      checkColor: Colors.black,
-                      activeColor: AppColors.textColor,
-                      
-                              
-                              value: this.value,
-                              onChanged: (value) {
-                                setState(() {
-                                  this.value = value!;
-                                });
-                              },
-                            ), //Checkbox
-                    Text(
-                          "I have read and agree to the ",
-                              style: GoogleFonts.dmSans(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.textColor, 
-                        ),
-                        ),
-                        Text(
-                          "terms and conditions",
-                              style: GoogleFonts.dmSans(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.btnColor, 
-                        ),
-                        ),
-                  ],
-                ),
-                
-                
-                    
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: height*0.1,),
+           
+            Center(
+              child: Text("Create Account",
+              style: GoogleFonts.manrope(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: AppColors.textColor
+              ),),
             ),
-          ),
-          SizedBox(height: height*0.03,),
-          GestureDetector(
-            onTap: signUp,
-            child: Container(
-              height: 54,
-              width: width*0.80,
-              decoration: BoxDecoration(
-                color: AppColors.btnColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: loading ? SizedBox(width: 15, height: 15, 
-                child: CircularProgressIndicator(color: AppColors.textColor,)) : Text(
-                  "Sign Up",
-                  style: GoogleFonts.dmSans(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.textColor, 
-                  ),
-                ),
-              ),
+            SizedBox(height: height*0.01,),
+            Center(
+              child: Text("Please provide following",
+              style: GoogleFonts.manrope(
+                fontSize: 15,
+                
+                color: AppColors.textColor
+              ),),
             ),
-          ),
-          SizedBox(height: height*0.05,),
-          Padding(
-            padding:  EdgeInsets.fromLTRB(width*0.1, 0, width*0.1, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 1,
-                  width: width*0.20,
-                  decoration: BoxDecoration(
-                    color: AppColors.textFieldPlaceholder,
-                    
+            Center(
+              child: Text("details for your new account",
+              style: GoogleFonts.manrope(
+                fontSize: 15,
+                
+                color: AppColors.textColor
+              ),),
+            ),
+            SizedBox(height: height*0.05,),
+            customTextField(controller: _nameController, hintText: 'Full Name', obscureText: false,),
+            SizedBox(height: height*0.02,),
+            customTextField(controller: _emailController, hintText: 'Email',  obscureText: false,),
+            SizedBox(height: height*0.02,),
+            customTextField(controller: _passwordController, hintText: 'Password', obscureText: true),
+            SizedBox(height: height*0.02,),
+            customTextField(controller: _confirmpasswordController, hintText: 'Confirm Password', obscureText: true,),
+      
+      
+            SizedBox(height: height*0.02,),
+            Padding(
+              padding:  EdgeInsets.fromLTRB(width*0.1, 0, width*0.1, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  
+                  
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        
+                        checkColor: Colors.black,
+                        activeColor: AppColors.textColor,
+                        
+                                
+                                value: this.value,
+                                onChanged: (value) {
+                                  setState(() {
+                                    this.value = value!;
+                                  });
+                                },
+                              ), //Checkbox
+                      Text(
+                            "I have read and agree to the ",
+                                style: GoogleFonts.dmSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.textColor, 
+                          ),
+                          ),
+                          Text(
+                            "terms and conditions",
+                                style: GoogleFonts.dmSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.btnColor, 
+                          ),
+                          ),
+                    ],
                   ),
                   
+                  
+                      
+                ],
+              ),
+            ),
+            SizedBox(height: height*0.03,),
+            GestureDetector(
+              onTap: signUp,
+              child: Container(
+                height: 54,
+                width: width*0.80,
+                decoration: BoxDecoration(
+                  color: AppColors.btnColor,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                Text(
-                      "Or continue with",
-                      style: GoogleFonts.dmSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textColor, 
-                      ),
+                child: Center(
+                  child: loading ? SizedBox(width: 15, height: 15, 
+                  child: CircularProgressIndicator(color: AppColors.textColor,)) : Text(
+                    "Sign Up",
+                    style: GoogleFonts.dmSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textColor, 
                     ),
-                    Container(
-                      height: 1,
-                      width: width*0.25,
-                      decoration: BoxDecoration(
-                        color: AppColors.textFieldPlaceholder,
-                        
-                      ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: height*0.05,),
+            Padding(
+              padding:  EdgeInsets.fromLTRB(width*0.1, 0, width*0.1, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 1,
+                    width: width*0.20,
+                    decoration: BoxDecoration(
+                      color: AppColors.textFieldPlaceholder,
                       
                     ),
-
-                   
+                    
+                  ),
+                  Text(
+                        "Or continue with",
+                        style: GoogleFonts.dmSans(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.textColor, 
+                        ),
+                      ),
+                      Container(
+                        height: 1,
+                        width: width*0.25,
+                        decoration: BoxDecoration(
+                          color: AppColors.textFieldPlaceholder,
+                          
+                        ),
+                        
+                      ),
+      
+                     
+                ],
+              ),
+            ),
+            SizedBox(height: height*0.02,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 54,
+                  width: width*0.2,
+                  decoration: BoxDecoration(
+                    color: AppColors.textColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Image.asset(AppImages.googleicon),
+                    ),
+                  ),
+                  SizedBox(width: width*0.02,),
+                  Container(
+                  height: 54,
+                  width: width*0.2,
+                  decoration: BoxDecoration(
+                    color: AppColors.textColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Image.asset(AppImages.facebook),
+                    ),
+                  ),
               ],
             ),
-          ),
-          SizedBox(height: height*0.02,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 54,
-                width: width*0.2,
-                decoration: BoxDecoration(
-                  color: AppColors.textColor,
-                  borderRadius: BorderRadius.circular(10),
+            
+      
+             SizedBox(height: height*0.05,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Already have an account?",
+                      style: GoogleFonts.dmSans(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.textFieldPlaceholder, 
                 ),
-                child: Center(
-                  child: Image.asset(AppImages.googleicon),
+                ),
+                GestureDetector(
+                  onTap: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const loginScreen())),
+                      },
+                  child: Text(
+                    "Login",
+                        style: GoogleFonts.dmSans(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.btnColor, 
+                  ),
                   ),
                 ),
-                SizedBox(width: width*0.02,),
-                Container(
-                height: 54,
-                width: width*0.2,
-                decoration: BoxDecoration(
-                  color: AppColors.textColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Image.asset(AppImages.facebook),
-                  ),
-                ),
-            ],
-          ),
-          
-
-           SizedBox(height: height*0.05,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Already have an account?",
-                    style: GoogleFonts.dmSans(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.textFieldPlaceholder, 
-              ),
-              ),
-              Text(
-                "Login",
-                    style: GoogleFonts.dmSans(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.btnColor, 
-              ),
-              ),
-            ],
-          ),
-          
-        ],
+              ],
+            ),
+            
+          ],
+        ),
       ),
     );
   }

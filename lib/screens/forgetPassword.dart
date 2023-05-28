@@ -31,9 +31,14 @@ class _forgetPasswordScreenState extends State<forgetPasswordScreen> {
               padding: const EdgeInsets.only(left: 10),
               child: AppBar(
                 backgroundColor: AppColors.primaryColor,
-                leading: Icon(
-                  Icons.arrow_back_ios,
-                  color: AppColors.textColor,
+                leading: GestureDetector(
+                  onTap: () => {
+                    Navigator.pop(context),
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.textColor,
+                  ),
                 ),
                 elevation: 0,
               ),
@@ -41,78 +46,80 @@ class _forgetPasswordScreenState extends State<forgetPasswordScreen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: height * 0.03,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: width * 0.07,
-              ),
-              Text(
-                "Forget Password",
-                style: GoogleFonts.manrope(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textColor),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: height * 0.01,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: width * 0.07,
-              ),
-              Center(
-                child: Text(
-                  "Enter the email address associated with your account",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: height * 0.03,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: width * 0.07,
+                ),
+                Text(
+                  "Forget Password",
                   style: GoogleFonts.manrope(
-                      fontSize: 13, color: AppColors.textColor),
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.textColor),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: height * 0.01,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: width * 0.07,
+                ),
+                Center(
+                  child: Text(
+                    "Enter the email address associated with your account",
+                    style: GoogleFonts.manrope(
+                        fontSize: 13, color: AppColors.textColor),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: height * 0.05,
+            ),
+            customTextField(controller: _emailController, hintText: 'Email', obscureText: false,),
+            SizedBox(
+              height: height * 0.05,
+            ),
+            GestureDetector(
+              onTap: forgetPassword,
+              child: Container(
+                height: 54,
+                width: width * 0.80,
+                decoration: BoxDecoration(
+                  color: AppColors.btnColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: loading
+                      ? SizedBox(
+                          width: 15,
+                          height: 15,
+                          child: CircularProgressIndicator(
+                            color: AppColors.textColor,
+                          ))
+                      : Text(
+                          "Recover Password",
+                          style: GoogleFonts.dmSans(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.textColor,
+                          ),
+                        ),
                 ),
               ),
-            ],
-          ),
-          SizedBox(
-            height: height * 0.05,
-          ),
-          customTextField(controller: _emailController, hintText: 'Email'),
-          SizedBox(
-            height: height * 0.05,
-          ),
-          GestureDetector(
-            onTap: forgetPassword,
-            child: Container(
-              height: 54,
-              width: width * 0.80,
-              decoration: BoxDecoration(
-                color: AppColors.btnColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: loading
-                    ? SizedBox(
-                        width: 15,
-                        height: 15,
-                        child: CircularProgressIndicator(
-                          color: AppColors.textColor,
-                        ))
-                    : Text(
-                        "Recover Password",
-                        style: GoogleFonts.dmSans(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textColor,
-                        ),
-                      ),
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

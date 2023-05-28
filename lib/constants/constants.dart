@@ -5,10 +5,11 @@ import 'package:re_exam_pro/constants/color_constants.dart';
 
 
 class customTextField extends StatelessWidget {
-  customTextField({super.key, required this.controller, required this.hintText});
+  customTextField({super.key, required this.controller, required this.hintText, required this.obscureText});
 
   TextEditingController controller;
   String hintText;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class customTextField extends StatelessWidget {
     return SizedBox(
             width: width*0.80,
             child: TextFormField(
+              obscureText: obscureText,
               controller: controller,
               style: TextStyle(
                  fontSize: 14,
